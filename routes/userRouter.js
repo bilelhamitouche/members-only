@@ -1,12 +1,14 @@
 const express = require("express");
 const {
-  getLoginPage,
-  getSignUpPage,
+  loginUserGet,
+  signUpUserGet,
+  signUpUserPost,
 } = require("../controllers/userController");
 
 const userRouter = express.Router();
 
-userRouter.get("/login", getLoginPage);
-userRouter.get("/signup", getSignUpPage);
+userRouter.get("/login", loginUserGet);
+userRouter.get("/signup", signUpUserGet);
+userRouter.post("/signup", signUpUserPost);
 
 module.exports = userRouter;
