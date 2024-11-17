@@ -1,9 +1,8 @@
 const express = require("express");
+const { getHomepage } = require("../controllers/indexController");
 
 const indexRouter = express.Router();
 
-indexRouter.get("/", (req, res) => {
-  res.render("index", { title: "Members only" });
-});
+indexRouter.get("/", getHomepage);
 
 module.exports = indexRouter;
