@@ -1,3 +1,7 @@
-const db = require("../db/queries");
+function getHomepage(req, res) {
+  res.render("index", { title: "Members only" });
+}
 
-module.exports = {};
+module.exports = {
+  getHomepage,
+};
