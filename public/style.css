@@ -12,4 +12,104 @@ html {
 
 body {
   min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  line-height: 1.5;
+}
+
+a.title {
+  text-decoration: none;
+  color: #22c55e;
+}
+
+p {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Utility classes */
+.btn {
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #22c55e;
+  color: white;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bg-dark {
+  background-color: #18181b;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-green {
+  color: #22c55e;
+}
+
+.max-w-800 {
+  max-width: 800px;
 }
