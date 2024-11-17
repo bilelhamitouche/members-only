@@ -27,6 +27,23 @@ p {
   font-weight: 500;
 }
 
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+input:focus {
+  outline: 2px solid green;
+}
+
 /* Utility classes */
 .btn {
   border: none;
@@ -108,6 +125,18 @@ p {
 
 .text-green {
   color: #22c55e;
+}
+
+.max-w-300 {
+  max-width: 300px;
+}
+
+.max-w-400 {
+  max-width: 400px;
+}
+
+.min-w-300 {
+  min-width: 300px;
 }
 
 .max-w-800 {
