@@ -3,8 +3,11 @@ const path = require("path");
 const passport = require("passport");
 const session = require("express-session");
 const pgSession = require("connect-pg-simple")(session);
+const flash = require("connect-flash");
 const pool = require("./db/pool");
 const indexRouter = require("./routes/indexRouter");
+const { passportLocalStrategy } = require("./authentication/passport");
+const userRouter = require("./routes/userRouter");
 require("dotenv").config();
 
 const app = express();
@@ -25,9 +28,13 @@ app.use(
     }),
   }),
 );
+app.use(flash());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
+passport.use(passportLocalStrategy);
+
 app.use("/", indexRouter);
+app.use("/users", userRouter);
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
