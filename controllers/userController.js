@@ -11,7 +11,6 @@ async function signUpUserGet(req, res) {
 
 async function signUpUserPost(req, res, next) {
   const { firstname, lastname, username, password } = req.body;
-  console.log(req.body);
   bcrypt.hash(password, 10, async (err, hashedPassword) => {
     if (err) {
       return next(err);
