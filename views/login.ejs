@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link href="/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+    <div class="flex flex-col justify-center items-center gap-4">
+      <form action="" method="post" class="flex flex-col gap-4 max-w-300 min-w-300">
+        <label for="user_name">
+          <span>Username </span>
+          <input type="email" name="user_name" id="user_name" placeholder="Enter username" required >
+        </label>
+        <label for="password">
+          <span>Password </span>
+          <input type="password" name="password" id="password" placeholder="Enter password" required >
+        </label>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <p class="flex gap-8 justify-between">Don't have an account? <a href="/users/signup">Sign Up</a></p>
+      </form>
+    </div>
+      <%- include("partials/footer") %>
+  </body>
+</html>
