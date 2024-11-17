@@ -27,9 +27,15 @@ async function insertUser(firstName, lastName, username, password) {
   );
 }
 
+async function getPosts() {
+  const { rows } = await pool.query("SELECT * FROM posts");
+  return rows;
+}
+
 module.exports = {
   getPosts,
   insertUser,
   getUserById,
   getUserByUsername,
+  getPosts,
 };
