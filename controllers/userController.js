@@ -19,7 +19,25 @@ const validateUser = [
     .withMessage(`Last name ${alphaErr}`)
     .isLength({ min: 2, max: 16 })
     .withMessage(`Last name ${lengthErr}`),
-  body("username").trim().isEmail().withMessage(`username ${emailErr}`),
+  body("username")
+    .trim()
+    .isEmail()
+    .withMessage(`username ${emailErr}`)
+    .custom(async (value) => {
+      const user = await db.getUserByUsername(value);
+      if (user) {
+        throw new Error("Username already in use");
+      }
+    }),
+  body("password")
+    .trim()
+    .isLength({ min: 2, max: 20 })
+    .withMessage("Password must be between 2 and 20 characters"),
+  body("confirm_password")
+    .custom((value, { req }) => {
+      return value === req.body.password;
+    })
+    .withMessage("Password confirmation does not match password"),
 ];
 
 async function loginUserGet(req, res) {
