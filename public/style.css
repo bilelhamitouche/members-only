@@ -44,6 +44,10 @@ input:focus {
   outline: 2px solid green;
 }
 
+textarea {
+  min-height: 50px;
+}
+
 /* Utility classes */
 .btn {
   border: none;
