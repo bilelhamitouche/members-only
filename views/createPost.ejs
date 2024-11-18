@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link href="/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+    <div class="flex flex-col justify-center items-center h-full">
+      <form action="/posts/create" method="post" class="flex flex-col gap-4 min-w-300">
+        <label for="title">
+          <span>Title </span>
+          <input type="text" name="title" id="title" placeholder="Enter a title" required>
+        </label>
+        <label for="text">
+          <span>Text </span>
+          <textarea name="text" id="text"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+    </div>
+    <%- include("partials/footer") %>
+  </body>
+</html>
