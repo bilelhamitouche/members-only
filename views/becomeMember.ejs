@@ -9,9 +9,9 @@
   <body>
     <%- include("partials/navbar", { isAuthenticated: true, isMember: false }) %> 
     <div class="flex flex-col justify-center items-center gap-8">
-      <h1>Become member: </h1>
-      <span class="text-gray">Hint: The best footballer of all time:</span>
-      <form action="/users/become-member" method="post">
+      <h1>Become a member </h1>
+      <span>Hint: The best footballer of all time.</span>
+      <form action="/users/become-member" method="post" class="flex flex-col gap-4 min-w-300">
         <label for="password">
           <span>Password </span>
           <input type="password" name="password" id="password" required>
