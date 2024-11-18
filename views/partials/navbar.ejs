@@ -2,5 +2,12 @@
   <a href="/" class="title">
     <h1>Exclusiv</h1>
   </a>
-  <a href="/users/become-member" class="btn btn-primary">Become a member</a>
+  <div class="flex items-center gap-4">
+    <% if(!isMember && isAuthenticated) { %>
+    <a href="/users/become-member" class="btn btn-primary">Become a member</a>
+    <% } %>
+    <% if (isAuthenticated) { %>
+      <a href="/users/logout" class="btn btn-alert">Logout</a>
+    <% } %>
+  </div>
 </nav>
