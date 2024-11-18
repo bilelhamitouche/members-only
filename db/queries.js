@@ -32,10 +32,18 @@ async function getPosts() {
   return rows;
 }
 
+async function insertPost(title, text, author) {
+  await pool.query(
+    "INSERT INTO posts (title, text, date, author) VALUES ($1, $2, NOW(), $3)",
+    [title, text, author],
+  );
+}
+
 module.exports = {
   getPosts,
-  insertUser,
   getUserById,
   getUserByUsername,
+  insertUser,
   getPosts,
+  insertPost,
 };
