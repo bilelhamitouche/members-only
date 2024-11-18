@@ -1,12 +1,28 @@
 const db = require("../db/queries");
 
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    res.redirect("/users/login");
+  }
+}
+
 async function getPosts(req, res) {
   const posts = await db.getPosts();
-  res.render("posts", { title: "Posts", posts: posts });
+  res.render("posts", {
+    title: "Posts",
+    posts: posts,
+    isMember: req.user.member,
+  });
 }
 
 async function createPostGet(req, res) {
-  res.render("createPost", { title: "Create post", user: req.user });
+  res.render("createPost", {
+    title: "Create post",
+    user: req.user,
+    isMember: req.user.member,
+  });
 }
 
 async function createPostPost(req, res) {
@@ -17,6 +33,7 @@ async function createPostPost(req, res) {
 }
 
 module.exports = {
+  ensureAuthenticated,
   getPosts,
   createPostGet,
   createPostPost,

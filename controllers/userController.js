@@ -25,8 +25,42 @@ async function signUpUserPost(req, res, next) {
   });
 }
 
+async function logoutUserGet(req, res, next) {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    } else {
+      res.redirect("/users/login");
+    }
+  });
+}
+
+function becomeMemberGet(req, res) {
+  res.render("becomeMember", {
+    title: "Become member",
+    message: req.flash("error"),
+  });
+}
+
+async function becomeMemberPost(req, res) {
+  const id = req.user.id;
+  const { password } = req.body;
+  if (
+    password.toLowerCase() === "lionel messi" ||
+    password.toLowerCase() === "cristiano ronaldo"
+  ) {
+    await db.becomeMember(id);
+  } else {
+    res.redirect("/users/become-member");
+  }
+  res.redirect("/posts");
+}
+
 module.exports = {
   loginUserGet,
   signUpUserGet,
   signUpUserPost,
+  logoutUserGet,
+  becomeMemberGet,
+  becomeMemberPost,
 };
