@@ -110,6 +110,10 @@ textarea {
   flex-direction: column;
 }
 
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -148,6 +152,14 @@ textarea {
 
 .h-full {
   height: 100%;
+}
+
+.h-svh {
+  height: 100svh;
+}
+
+.max-h-svh {
+  max-height: 100svh;
 }
 
 .w-full {
