@@ -146,3 +146,8 @@ textarea {
 .max-w-800 {
   max-width: 800px;
 }
+
+.alert {
+  text-align: center;
+  color: #ef4444;
+}

@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const db = require("../db/queries");
 
 async function loginUserGet(req, res) {
-  res.render("login", { title: "Login" });
+  res.render("login", { title: "Login", message: req.flash("error") });
 }
 
 async function signUpUserGet(req, res) {
