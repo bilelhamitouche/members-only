@@ -18,11 +18,12 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: false }));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: new pgSession({
       pool: pool,
       tableName: "session",
@@ -31,8 +32,6 @@ app.use(
 );
 app.use(flash());
 app.use(passport.session());
-app.use(express.urlencoded({ extended: false }));
-passport.use(passportLocalStrategy);
 
 app.use("/", indexRouter);
 app.use("/users", userRouter);
