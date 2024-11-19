@@ -7,7 +7,7 @@
     <link href="/style.css" rel="stylesheet">
   </head>
   <body>
-    <%- include("partials/navbar", { isAuthenticated: true, isMember: isMember }) %>
+    <%- include("partials/navbar", { isAuthenticated: true, isMember: isMember, isAdmin: isAdmin }) %>
     <div class="flex flex-col gap-4 p-8">
       <h1>Posts</h1> 
       <a href="/posts/create">Create a post</a>

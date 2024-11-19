@@ -3,6 +3,9 @@
     <h1>Exclusiv</h1>
   </a>
   <div class="flex items-center gap-4">
+    <% if(!isAdmin && isMember) { %>
+    <a href="/users/become-admin" class="btn btn-primary">Become an admin</a>
+    <% } %>
     <% if(!isMember && isAuthenticated) { %>
     <a href="/users/become-member" class="btn btn-primary">Become a member</a>
     <% } %>
