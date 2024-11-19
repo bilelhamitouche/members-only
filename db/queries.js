@@ -47,6 +47,10 @@ async function becomeAdmin(id) {
   await pool.query("UPDATE users SET admin = true WHERE id = ($1)", [id]);
 }
 
+async function deletePost(id) {
+  await pool.query("DELETE FROM posts WHERE id = ($1)", [id]);
+}
+
 module.exports = {
   getPosts,
   getUserById,
@@ -56,4 +60,5 @@ module.exports = {
   insertPost,
   becomeMember,
   becomeAdmin,
+  deletePost,
 };

@@ -34,9 +34,16 @@ async function createPostPost(req, res) {
   res.redirect("/posts");
 }
 
+async function deletePostPost(req, res) {
+  const postId = req.params.id;
+  await db.deletePost(postId);
+  res.redirect("/posts");
+}
+
 module.exports = {
   ensureAuthenticated,
   getPosts,
   createPostGet,
   createPostPost,
+  deletePostPost,
 };

@@ -14,9 +14,22 @@
       <ul class="flex flex-col gap-4">
         <% if(posts.length > 0) { %>
           <% posts.forEach((post) => { %>
-            <li class="p-4 flex gap-4">
-              <span><%= post.title %></span>
-              <span><%= post.text %></span>
+            <li class="p-4 flex justify-between items-center gap-2 border rounded">
+              <div class="flex flex-col gap-2">
+                <span><strong>Title:</strong> <%= post.title %></span>
+                <% if(isMember) { %>
+                  <span><strong>Author:</strong> <%= post.date %></span>
+                <% } %>
+                <span><strong>Post:</strong> <%= post.text %></span>
+                <% if(isMember) { %>
+                  <span><strong>Posted At:</strong> <%= post.date %></span>
+                <% } %>
+              </div>
+              <% if(isAdmin) { %>
+                <form action="/posts/<%= post.id %>/delete" method="post">
+                  <button class="btn btn-alert">Delete</button>
+                </form>
+              <% } %>
             </li>
           <% }) %>
         <% } else { %>
