@@ -202,3 +202,11 @@ textarea {
   text-align: center;
   color: #ef4444;
 }
+
+.border {
+  border: 1px solid #ccc;
+}
+
+.rounded {
+  border-radius: 5px;
+}
