@@ -14,6 +14,7 @@ async function getPosts(req, res) {
     title: "Posts",
     posts: posts,
     isMember: req.user.member,
+    isAdmin: req.user.admin,
   });
 }
 
@@ -22,6 +23,7 @@ async function createPostGet(req, res) {
     title: "Create post",
     user: req.user,
     isMember: req.user.member,
+    isAdmin: req.user.admin,
   });
 }
 

@@ -109,6 +109,24 @@ async function becomeMemberPost(req, res) {
   res.redirect("/posts");
 }
 
+async function becomeAdminGet(req, res) {
+  res.render("becomeAdmin", {
+    title: "Become admin",
+    isAuthenticated: true,
+    isMember: true,
+    isAdmin: false,
+  });
+}
+
+async function becomeAdminPost(req, res) {
+  const { password } = req.body;
+  const id = req.user.id;
+  if (password === "admin") {
+    await db.becomeAdmin(id);
+  }
+  res.redirect("/posts");
+}
+
 module.exports = {
   loginUserGet,
   signUpUserGet,
@@ -116,4 +134,6 @@ module.exports = {
   logoutUserGet,
   becomeMemberGet,
   becomeMemberPost,
+  becomeAdminGet,
+  becomeAdminPost,
 };
