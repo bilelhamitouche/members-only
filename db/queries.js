@@ -43,6 +43,10 @@ async function becomeMember(id) {
   await pool.query("UPDATE users SET member = true WHERE id = ($1)", [id]);
 }
 
+async function becomeAdmin(id) {
+  await pool.query("UPDATE users SET admin = true WHERE id = ($1)", [id]);
+}
+
 module.exports = {
   getPosts,
   getUserById,
@@ -51,4 +55,5 @@ module.exports = {
   getPosts,
   insertPost,
   becomeMember,
+  becomeAdmin,
 };
