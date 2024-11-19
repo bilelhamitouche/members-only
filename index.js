@@ -6,7 +6,6 @@ const pgSession = require("connect-pg-simple")(session);
 const flash = require("connect-flash");
 const pool = require("./db/pool");
 const indexRouter = require("./routes/indexRouter");
-const { passportLocalStrategy } = require("./authentication/passport");
 const userRouter = require("./routes/userRouter");
 const postRouter = require("./routes/postRouter");
 require("dotenv").config();
