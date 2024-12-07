@@ -14,11 +14,11 @@
       <ul class="flex flex-col gap-4">
         <% if(posts.length > 0) { %>
           <% posts.forEach((post) => { %>
-            <li class="p-4 flex justify-between items-center gap-2 border rounded">
+            <li class="flex gap-2 justify-between items-center p-4 rounded border">
               <div class="flex flex-col gap-2">
                 <span><strong>Title:</strong> <%= post.title %></span>
                 <% if(isMember) { %>
-                  <span><strong>Author:</strong> <%= post.date %></span>
+                  <span><strong>Author:</strong> <%= post.author %></span>
                 <% } %>
                 <span><strong>Post:</strong> <%= post.text %></span>
                 <% if(isMember) { %>
